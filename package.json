@@ -1,0 +1,16 @@
+{
+  "name": "holamundo-electron",
+  "version": "1.0.0",
+  "description": "Un Hola Mundo en Electron",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "Miguel Angel Alvarez",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^24.3.0"
+  }
+}
