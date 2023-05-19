@@ -4,13 +4,26 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Primer documento para trabajar con Electron</title>
+  <title>Usar datos del preload script con Electron</title>
 </head>
 <body>
-  <h1>Bienvenidos a Electron</h1>
-  <p>Estamos desarrollando nuestra primera aplicación con Electron.</p>
-  <p id="info"></p>
+  <h1></h1>
+  <p id="foo"></p>
+  <p id="version"></p>
+  <p id="suma"></p>
 
-  <script src="src/renderer.js"></script>
+  <script>
+    const h1 = document.querySelector('h1');
+    h1.innerText = `Bienvenidos a ${appName}`;
+
+    const foo = document.getElementById('foo');
+    foo.innerText = `Usamos node versión ${nodeData.foo}`;
+
+    const version = document.getElementById('version');
+    version.innerText = `Usamos node versión ${nodeData.node()}`;
+
+    const suma = document.getElementById('suma');
+    suma.innerText = `La suma de 3 y 9 da ${nodeData.sum(3, 9)}`;
+  </script>
 </body>
 </html>

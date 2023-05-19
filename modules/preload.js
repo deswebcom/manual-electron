@@ -1,10 +1,9 @@
 const { contextBridge } = require('electron')
 
-contextBridge.exposeInMainWorld('versions', {
+contextBridge.exposeInMainWorld('nodeData', {
+  foo: 'bla bla',
   node: () => process.versions.node,
-  chrome: () => process.versions.chrome,
-  electron: () => process.versions.electron,
-  appName: 'Hola Mundo App',
+  sum: (x, y) => x + y,
 });
 
 contextBridge.exposeInMainWorld('appName', 'Hola Mundo App');
