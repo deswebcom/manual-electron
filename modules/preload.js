@@ -8,4 +8,4 @@ contextBridge.exposeInMainWorld('nodeData', {
 
 contextBridge.exposeInMainWorld('appName', 'Hola Mundo App');
 
-contextBridge.exposeInMainWorld('readFile', () => ipcRenderer.invoke('readFile'));
+contextBridge.exposeInMainWorld('doReadFile', () => ipcRenderer.invoke('readFile'));
