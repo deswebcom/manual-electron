@@ -12,6 +12,8 @@
   <p id="version"></p>
   <p id="suma"></p>
 
+  <button id="readbutton">Leer archivo</button>
+
   <script>
     const h1 = document.querySelector('h1');
     h1.innerText = `Bienvenidos a ${appName}`;
@@ -24,6 +26,10 @@
 
     const suma = document.getElementById('suma');
     suma.innerText = `La suma de 3 y 9 da ${nodeData.sum(3, 9)}`;
+
+    document.getElementById('readbutton').addEventListener('click', function() {
+      readFile();
+    });
   </script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-const { contextBridge } = require('electron')
+const { contextBridge, ipcRenderer } = require('electron');
 
 contextBridge.exposeInMainWorld('nodeData', {
   foo: 'bla bla',
@@ -8,3 +8,4 @@ contextBridge.exposeInMainWorld('nodeData', {
 
 contextBridge.exposeInMainWorld('appName', 'Hola Mundo App');
 
+contextBridge.exposeInMainWorld('readFile', () => ipcRenderer.invoke('readFile'));
