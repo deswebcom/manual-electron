@@ -39,13 +39,19 @@
 
     document.getElementById('readbutton').addEventListener('click', function (e) {
       e.preventDefault();
-      doReadFile().then(text => document.getElementById('file').value = text);
+      restoreFile();
     });
     document.getElementById('savebutton').addEventListener('click', function (e) {
       e.preventDefault();
       let text = document.getElementById('file').value;
       doSaveFile(text).then(() => console.log('salvado!!') );
     });
+
+    function restoreFile() {
+      doReadFile().then(text => document.getElementById('file').value = text);
+    }
+
+    restoreFile();
   </script>
 </body>
 
