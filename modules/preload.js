@@ -9,3 +9,4 @@ contextBridge.exposeInMainWorld('nodeData', {
 contextBridge.exposeInMainWorld('appName', 'Hola Mundo App');
 
 contextBridge.exposeInMainWorld('doReadFile', () => ipcRenderer.invoke('readFile'));
+contextBridge.exposeInMainWorld('doSaveFile', (text) => ipcRenderer.invoke('saveFile', text));

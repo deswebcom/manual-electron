@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Usar datos del preload script con Electron</title>
+  <link rel="stylesheet" href="./src/css/style.css">
 </head>
+
 <body>
   <h1></h1>
+
+  <form>
+    <label for="file">Texto:</label>
+    <textarea name="file" id="file" cols="30" rows="7"></textarea>
+    <br>
+    <button id="readbutton">Leer archivo</button>
+    <button id="savebutton">Guardar archivo</button>
+  </form>
+
   <p id="foo"></p>
   <p id="version"></p>
   <p id="suma"></p>
-
-  <button id="readbutton">Leer archivo</button>
 
   <script>
     const h1 = document.querySelector('h1');
@@ -27,9 +37,16 @@
     const suma = document.getElementById('suma');
     suma.innerText = `La suma de 3 y 9 da ${nodeData.sum(3, 9)}`;
 
-    document.getElementById('readbutton').addEventListener('click', function() {
-      doReadFile();
+    document.getElementById('readbutton').addEventListener('click', function (e) {
+      e.preventDefault();
+      doReadFile().then(text => document.getElementById('file').value = text);
+    });
+    document.getElementById('savebutton').addEventListener('click', function (e) {
+      e.preventDefault();
+      let text = document.getElementById('file').value;
+      doSaveFile(text).then(() => console.log('salvado!!') );
     });
   </script>
 </body>
+
 </html>
