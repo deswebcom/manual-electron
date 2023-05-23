@@ -1,0 +1,3 @@
+Esto es un fichero de texto.
+
+Estamos viendo cómo lo abres con NodeJS.
