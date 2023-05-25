@@ -16,6 +16,12 @@ const createWindow = () => {
 ipcMain.handle('readFile', readLocalFile);
 ipcMain.handle('saveFile', saveLocalFile);
 
+ipcMain.handle('randomString', createRandomString);
+
+function createRandomString() {
+  return (Math.random() + 1).toString(36).substring(2);
+}
+
 app.whenReady().then(createWindow);
 
 app.on('activate', () => {
